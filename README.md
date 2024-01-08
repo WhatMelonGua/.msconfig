@@ -55,7 +55,7 @@ bash msconfig.install.sh install
 
 ### 便捷消息 & 客制化终端
 
-![6243f784-df6a-4da0-bf01-aa5abf6958ce](file:///C:/Users/VaterHu/Pictures/Typedown/6243f784-df6a-4da0-bf01-aa5abf6958ce.png)
+![std-msg](https://github.com/WhatMelonGua/.msconfig/blob/main/readme_img/std_msg.png)
 
 ```bash
 更改终端命令行风格请在 .msconfig/startup/load/Zonefinal.sh 下修改
@@ -65,6 +65,6 @@ PS1="\e[43;30m⛽ \h \e[42;30m 👤 \u \e[44;30m 📂 \w  \e[40;34m]\e[0m\n>>> "
 
 ### csv查询工具
 
-![4f0855b2-2bcd-4b3d-9a42-46fee14c7a9e](file:///C:/Users/VaterHu/Pictures/Typedown/4f0855b2-2bcd-4b3d-9a42-46fee14c7a9e.png)
+![csv-tool](https://github.com/WhatMelonGua/.msconfig/blob/main/readme_img/csv_tool.png)
 
 ### ...
