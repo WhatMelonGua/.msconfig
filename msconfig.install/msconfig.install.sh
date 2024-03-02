@@ -20,14 +20,14 @@ ms.package_mine(){
     exit
   fi
   # make init shell.txt
-  local lines=$(cat ~/.bashrc | grep -n "${ms_set_matcher}")
+  local lines=$(cat ~/.bash_profile | grep -n "${ms_set_matcher}")
   if [ ! -z "${lines}" ]; then
     lines=(${lines//:/" "})
     lines=" '${lines[0]},\$p' "
-    eval "sed -n ${lines} ~/.bashrc > ${output_path}/${ms_set_name}.init"
+    eval "sed -n ${lines} ~/.bash_profile > ${output_path}/${ms_set_name}.init"
     echo -e "\e[34mInfo: init shell extracted to '${output_path}/${ms_set_name}.init' \e[0m"
   else
-    echo -e "\e[31mERRORR: There is no init shell in your ~/.bashrc file! \e[0m"
+    echo -e "\e[31mERRORR: There is no init shell in your ~/.bash_profile file! \e[0m"
     echo -e "\e[31mPack Failed! \e[0m"
     exit
   fi
@@ -73,7 +73,7 @@ ms.install(){
   fi
   echo -e "\e[32mUse: ${ms_name}\e[0m"
   # init shell scripts add
-  cat ${pkg_path}/${ms_name}.init >> ~/.bashrc
+  cat ${pkg_path}/${ms_name}.init >> ~/.bash_profile
   # config shells extract to home
   if [ ! -d ~/${ms_name} ]; then
     mkdir ~/${ms_name}
