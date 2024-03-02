@@ -68,3 +68,7 @@ PS1="\e[43;30m⛽ \h \e[42;30m 👤 \u \e[44;30m 📂 \w  \e[40;34m]\e[0m\n>>> "
 ![csv-tool](https://github.com/WhatMelonGua/.msconfig/blob/main/readme_img/csv_tool.png)
 
 ### ...
+
+### To Do List
+
+更新安装逻辑，初始化加载代码应该迁移至"~/.bash_profile"文件，而不是".bashrc"，否则会影响SFTP功能
