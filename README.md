@@ -8,7 +8,7 @@
 
 将.msconfig目录复制到您的用户文件夹"~"下
 
-为了使.msconfig可用，你需要同时在 ~/.bashrc末尾添加如下内容：
+为了使.msconfig可用，你需要同时在 ~/.bash_profile末尾添加如下内容：
 
 ```bash
 if [ -d ~/.msconfig ]; then
