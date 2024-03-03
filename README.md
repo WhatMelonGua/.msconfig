@@ -4,7 +4,9 @@
 
 > 其支持模块化的插件添加、加载项引入等
 
-## 1-直接安装
+## 1-手动链接安装 (不推荐)
+
+如果您采用手动方式，则该仓库的msconfig.install目录对您来说是无用的
 
 将.msconfig目录复制到您的用户文件夹"~"下
 
@@ -41,9 +43,11 @@ if [ -d ~/.msconfig ]; then
 fi
 ```
 
-## 2-通过shell安装
+## 2-通过shell安装 (推荐)
 
 或者您也可直接将msconfig.install目录下载至主机，并在.../msconfig.install目录下通过如下命令完成安装
+
+__注：该安装方法仅需要您保证msconfig.install目录被下载即可，不需要再额外添加该仓库的.msconfig目录
 
 ```bash
 bash msconfig.install.sh install
