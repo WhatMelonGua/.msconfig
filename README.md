@@ -47,7 +47,7 @@ fi
 
 或者您也可直接将msconfig.install目录下载至主机，并在.../msconfig.install目录下通过如下命令完成安装
 
-__注：该安装方法仅需要您保证msconfig.install目录被下载即可，不需要再额外添加该仓库的.msconfig目录
+__注：该安装方法仅需要您保证msconfig.install目录被下载即可，不需要再额外添加该仓库的.msconfig目录__
 
 ```bash
 bash msconfig.install.sh install
