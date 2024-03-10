@@ -17,7 +17,7 @@ if [ -d ~/.msconfig ]; then
   # Load Source shell scripts
   export PATH="~/.msconfig/startup/env":$PATH
   echo -e "\e[35m[\t-\t-\tLoad Item\t-\t-\t] \e[0m"
-  scripts=($(find ~/.msconfig/load/*.sh))
+  scripts=($(find ~/.msconfig/load/*.sh | sort -f))
   echo -en "\e[32m.msconfig:"
   for script in ${scripts[@]}
   do
@@ -27,7 +27,7 @@ if [ -d ~/.msconfig ]; then
   echo -e "\e[0m Loaded..."
   # Act Init shell scripts
   echo -e "\e[35m[\t-\t-\tInit Item\t-\t-\t] \e[0m"
-  scripts=($(find ~/.msconfig/init/*.sh))
+  scripts=($(find ~/.msconfig/init/*.sh | sort -f))
   echo -en "\e[32m.msconfig:"
   for script in ${scripts[@]}
   do
