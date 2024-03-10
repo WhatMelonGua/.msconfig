@@ -118,9 +118,13 @@ def query(f, select, where, out_limit, default):
                 break
         # 检测符合where, 构建返回
         if status:
-            output_counts += 1
-            val = GAP_RETURN.join(arr_extract(cont_row, select))
-            print(val or default, end=" ")
+            val = GAP_RETURN.join(arr_extract(cont_row, select)) or default
+            val = " " + val
+            # 首个输出变量前方无空格
+            if output_counts == 1:
+                print(val[1:], end="")
+            else:
+                print(val, end="")
         cont_row = f.readline()
     # 返回 空字符串 , 符合Shell解析
     return ""
