@@ -1,5 +1,0 @@
-# set cycle task with (minutes hour day month weekday) cmd sentence
-crontab -e
-
-# check your cycle task
-crontab -l
