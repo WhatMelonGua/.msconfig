@@ -38,7 +38,7 @@ HELP
     else
         tail -n $n ${MS_HISTDIR}/${hist}.log
     fi
-}
+}; export -f app.hist;
 
 
 
@@ -59,4 +59,4 @@ HELP
     else
         tail -n $n ${MS_HISTDIR}/${hist}.auto.log
     fi
-}
+}; export -f app.hist.auto;
