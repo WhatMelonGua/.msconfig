@@ -19,13 +19,15 @@
 ```bash
 # custom alias
 alias ls='ls --color=auto'
-# Source Guard # 防止互相循环加载
-[[ -n ${BASH_PROFILE_SOURCED-} ]] && return
-BASH_PROFILE_SOURCED=1
+# Source Guard # 防止互相循环加载, 某些集群/机器 可能会存在 .bashrc 加载 .bash_profile / .bash_profile不被自动加载的情况
+# 用户需自己灵活配置，使用手段防止`循环加载`/`.bash_profile不被加载` 下边是一个示例，通过 BASH_PROFILE_SOURCED 全局变量确认是否循环多次加载 某个bash文件
+# [[ -n ${BASH_PROFILE_SOURCED-} ]] && return
+# BASH_PROFILE_SOURCED=1  # bash_profile被加载, .bashrc可以此判断
 #Source global definitions
-if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
-fi
+#if [ -f ~/.bashrc && ! BASHRC_SOURCED -eq 1 ]; then
+#	. ~/.bashrc
+#	BASHRC_SOURCED=1 # bashrc被加载
+#fi
 
 
 # region |- .msconfig loader -|
