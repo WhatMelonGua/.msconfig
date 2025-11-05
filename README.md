@@ -17,18 +17,13 @@
 为了使.msconfig可用，你需要同时在 ~/.bash_profile末尾添加如下内容：
 
 ```bash
+# .bash_profile
+
+
+# User specific environment and startup programs
+
 # custom alias
 alias ls='ls --color=auto'
-# Source Guard # 防止互相循环加载, 某些集群/机器 可能会存在 .bashrc 加载 .bash_profile / .bash_profile不被自动加载的情况
-# 用户需自己灵活配置，使用手段防止`循环加载`/`.bash_profile不被加载` 下边是一个示例，通过 BASH_PROFILE_SOURCED 全局变量确认是否循环多次加载 某个bash文件
-# [[ -n ${BASH_PROFILE_SOURCED-} ]] && return
-# BASH_PROFILE_SOURCED=1  # bash_profile被加载, .bashrc可以此判断
-#Source global definitions
-#if [ -f ~/.bashrc && ! BASHRC_SOURCED -eq 1 ]; then
-#	. ~/.bashrc
-#	BASHRC_SOURCED=1 # bashrc被加载
-#fi
-
 
 # region |- .msconfig loader -|
 export MSCONFIG_ROOT=$(echo ~/.msconfig)
@@ -41,7 +36,7 @@ if [ -d ~/.msconfig ]; then
     echo -en "\e[32m.msconfig:"
     for script in ${scripts[@]}; do
         echo -en " $(basename ${script} .sh) |"
-        source ${script}
+        . ${script}
     done
     echo -e "\e[0m Loaded..."
     # Act Init shell scripts
@@ -66,6 +61,15 @@ if [ -d ~/.msconfig ]; then
     source $MSCONFIG_ROOT/boot/configHandler.sh
 fi
 # endregion
+
+# Source Guard # 防止互相循环加载
+[[ -n ${BASH_PROFILE_SOURCED-} ]] && return
+BASH_PROFILE_SOURCED=1
+# Get the aliases and functions
+if [[ (-f ~/.bashrc) && ($BASHRC_SOURCED -eq 1) ]]; then
+	. ~/.bashrc
+    BASHRC_SOURCED=1
+fi
 ```
 
 ## 2-通过shell安装 (可能遇到更新后的不稳定)
