@@ -62,14 +62,14 @@ if [ -d ~/.msconfig ]; then
 fi
 # endregion
 
-# Source Guard # 防止互相循环加载
-[[ -n ${BASH_PROFILE_SOURCED-} ]] && return
-BASH_PROFILE_SOURCED=1
 # Get the aliases and functions
 if [[ (-f ~/.bashrc) && ($BASHRC_SOURCED -eq 1) ]]; then
 	. ~/.bashrc
     BASHRC_SOURCED=1
 fi
+# Source Guard # 防止互相循环加载
+[[ -n ${BASH_PROFILE_SOURCED-} ]] && return
+export BASH_PROFILE_SOURCED=1
 ```
 
 ## 2-通过shell安装 (可能遇到更新后的不稳定)
